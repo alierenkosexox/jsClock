@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: darkorange;
+    }
+    .welcome {
+      margin: auto;
+      margin-top: 50px;
+      padding: 20px;
+
+      width: 500px;
+      height: 100px;
+      background-color: whitesmoke;
+      justify-content: center;
+      text-align: center;
+      border-radius: 15px;
+    }
+    .clock {
+      font-size: xx-large;
+      margin: auto;
+      margin-top: 50px;
+      padding: 20px;
+      width: 60%;
+      height: 150px;
+      background-color: whitesmoke;
+      justify-content: center;
+      text-align: center;
+      border-radius: 15px;
+    }
+  </style>
+  <body onload="startTime()" onmousemove="showCoords(event)" onmouseout="clearCoor()">
+    <div class="welcome">
+        <h1 id="card" ></h1>
+    </div>
+  
+    </div>
+    <div class="clock">
+        <p>Current Date & Time</p>
+        <h4 id = "zaman"></h4>
+    </div>
+    <div  class="clock">
+        <h4>Mouse Coordinate</h4>
+        <h3 id="demo"></h3>
+
+    </div>
+    
+
+    <script>
+
+        var name = prompt("Please Enter Name");
+
+        var card = document.getElementById("card")
+        card.setAttribute("class", "card")
+        card.innerText = "Welcome " + name;
+       
+        function showCoords(event) {
+
+        let x = event.clientX;
+        let y = event.clientY;
+        let text = "X coords: " + x + ", Y coords: " + y;
+        document.getElementById("demo").innerHTML = text;
+        }
+        function clearCoor() {
+        document.getElementById("demo").innerHTML = "";
+        }
+
+       function dateclock() {
+        var date = new Date().toLocaleString('tr-TR');
+        document.getElementById('zaman').innerHTML = date;
+
+       }
+       setInterval(dateclock, 1000)
+
+    </script>
+  </body>
+</html>
